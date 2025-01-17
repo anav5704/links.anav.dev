@@ -1,0 +1,30 @@
+[
+    {
+        "title": "Portfolio",
+        "href": "https://anav.dev"
+    },
+    {
+        "title": "Resume",
+        "href": "https://dub.sh/anav-resume"
+    },
+    {
+        "title": "Email",
+        "href": "mailto:me@anav.dev"
+    },
+    {
+        "title": "LinkedIn",
+        "href": "https://linkedin.com/in/aanaav"
+    },
+    {
+        "title": "GitHub",
+        "href": "https://github.com/anav5704"
+    },
+    {
+        "title": "GitLab",
+        "href": "https://gitlab.com/anav5704"
+    },
+    {
+        "title": "DockerHub",
+        "href": "https://hub.docker.com/u/anav5704"
+    }
+]

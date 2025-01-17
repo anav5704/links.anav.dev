@@ -4,16 +4,15 @@
 
 @layer base {
     body {
-        @apply max-w-7xl mx-auto underline-offset-[3px];
+        @apply max-w-7xl mx-auto text-[#444444] underline-offset-[3px];
     }
 
     * {
         font-family: "Geist Sans", sans-serif;
     }
 
-    h1,
-    h3 {
-        @apply pt-5 font-semibold;
+    h1 {
+        @apply font-semibold text-black text-3xl md:text-4xl text-center;
         font-family: "Alice", serif;
     }
 }

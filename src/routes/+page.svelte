@@ -1,9 +1,8 @@
 <script lang="ts">
-    const { data } = $props();
+    import data from "../data/links.json";
 </script>
 
 <svelte:head>
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
     <meta name="description" content="Anav Chand | Links" />
     <title>Anav Chand | Links</title>
 </svelte:head>
@@ -22,17 +21,8 @@
     <a class="underline" href="https://usp.ac.fj"> USP </a>.
 </p>
 
-{#await data.collections}
-    <p>Loading....</p>
-{:then collection}
-    {#each collection as { title, links }}
-        <h2>{title}</h2>
-        <div
-            class="border border-zinc-200 rounded-lg flex flex-col divide-y divide-zinc-200"
-        >
-            {#each links as { title, slug }}
-                <a class="p-5" href={slug}>{title}</a>
-            {/each}
-        </div>
-    {/each}
-{/await}
+{#each data as { title, href }}
+    <a class="block px-4 py-2 border border-zinc-200 rounded-lg" {href}>
+        {title}
+    </a>
+{/each}
