@@ -13,16 +13,17 @@
     alt="Anav Chand"
 />
 
-<h1>Anav Chand</h1>
+<h1>Hi, I'm Anav Chand</h1>
 
 <p class="text-center">
-    Hey, I am an aspiring DevOps engineer, self-taught web developer, first-year
+    I'm an aspiring DevOps engineer, self-taught web developer, first-year
     software engineering student, and award-winning peer mentor @
     <a class="underline" href="https://usp.ac.fj"> USP </a>.
 </p>
 
 {#each data as { title, href }}
     <a class="block px-4 py-2 border border-zinc-200 rounded-lg" {href}>
-        {title}
+        <p>{title}</p>
+        <p class="faded">{href}</p>
     </a>
 {/each}
