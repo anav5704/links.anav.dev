@@ -15,4 +15,8 @@
         @apply font-semibold text-black text-3xl md:text-4xl text-center;
         font-family: "Alice", serif;
     }
+
+    .faded {
+        @apply text-[#888888];
+    }
 }
