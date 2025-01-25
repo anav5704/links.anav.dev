@@ -7,6 +7,7 @@
         "dev": "vite dev",
         "build": "vite build",
         "preview": "vite preview",
+        "postinstall": "npx prisma generate",
         "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
         "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch"
     },
@@ -16,6 +17,7 @@
     },
     "devDependencies": {
         "@sveltejs/adapter-vercel": "^5.5.2",
+        "@sveltejs/enhanced-img": "^0.4.4",
         "@sveltejs/kit": "^2.0.0",
         "@sveltejs/vite-plugin-svelte": "^4.0.0",
         "@types/node": "^22.10.10",
