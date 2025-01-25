@@ -2,4 +2,10 @@
     const { data } = $props();
 </script>
 
-<h1>Error {data.status}: {data.error}</h1>
+<img
+    class="object-cover rounded-lg w-[300px] h-[300px]"
+    alt="Link not found"
+    src="sadbob.gif"
+/>
+
+<h1>Error: link does not exist.</h1>

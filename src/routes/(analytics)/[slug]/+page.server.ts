@@ -9,16 +9,14 @@ export async function load({ request, params: { slug } }) {
     })
 
     if (!link) {
-        return {
-            error: "Link not found",
-            status: 404
-        }
+        return
     }
+
 
     await db.click.create({
         data: {
             linkId: link.id,
-            referrer: request.headers.get("referer") || null,
+            referrer: request.headers.get("referer") || "direct",
             country: request.headers.get("cf-ipcountry") || null,
         }
     })
