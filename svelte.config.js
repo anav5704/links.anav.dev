@@ -6,6 +6,9 @@ import adapter from '@sveltejs/adapter-vercel';
 const config = {
     preprocess: vitePreprocess(),
     kit: {
+        alias: {
+            "@/*": "./src/*"
+        },
         adapter: adapter()
     }
 };
