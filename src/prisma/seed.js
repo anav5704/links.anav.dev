@@ -3,9 +3,6 @@ import { PrismaClient } from '@prisma/client'
 const prisma = new PrismaClient()
 
 async function main() {
-    await prisma.click.deleteMany()
-    await prisma.link.deleteMany()
-
     const links = await prisma.link.createMany({
         data: [
             {
