@@ -12,12 +12,12 @@ export async function load({ request, params: { slug } }) {
         return
     }
 
-
-    await db.click.create({
+    await db.link.update({
+        where: {
+            id: link.id,
+        },
         data: {
-            linkId: link.id,
-            referrer: request.headers.get("referer") || "direct",
-            country: request.headers.get("cf-ipcountry") || null,
+            clicks: ++link.clicks
         }
     })
 
