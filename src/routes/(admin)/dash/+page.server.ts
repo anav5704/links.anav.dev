@@ -2,8 +2,10 @@ import { redirect, type Actions } from "@sveltejs/kit"
 import type { Link } from "@prisma/client"
 import { db } from "@/prisma"
 
-export const load = async ({ parent, url }) => {
-    await parent()
+export const load = async ({ locals, url }) => {
+    if (!locals.user) {
+        redirect(303, "/login")
+    }
 
     const search = url.searchParams.get("search")
 
