@@ -73,7 +73,7 @@
     {#each links as link (link.id)}
         <button
             animate:flip={{ duration }}
-            class="w-full text-left"
+            class={`${link.hidden && "opacity-50"} w-full text-left`}
             onclick={() => {
                 currentLink = link;
                 editLink = true;
