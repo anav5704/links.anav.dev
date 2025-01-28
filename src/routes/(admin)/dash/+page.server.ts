@@ -60,15 +60,19 @@ export const actions: Actions = {
         const subtitle = data.get("subtitle") as string
         const slug = data.get("slug") as string
         const url = data.get("url") as string
+        const hidden = data.get("hidden") as string
 
         await db.link.create({
             data: {
                 title,
                 subtitle,
                 slug,
-                url
+                url,
+                hidden: Boolean(hidden)
             }
         })
+
+        redirect(303, "/dash")
     },
 
     updateLink: async ({ request, locals }) => {
@@ -83,6 +87,7 @@ export const actions: Actions = {
         const subtitle = data.get("subtitle") as string
         const slug = data.get("slug") as string
         const url = data.get("url") as string
+        const hidden = data.get("hidden") as string
 
         await db.link.update({
             where: {
@@ -92,9 +97,12 @@ export const actions: Actions = {
                 title,
                 subtitle,
                 slug,
-                url
+                url,
+                hidden: Boolean(hidden)
             }
         })
+
+        redirect(303, "/dash")
     },
 
     reorderLink: async ({ request, locals }) => {
@@ -119,6 +127,8 @@ export const actions: Actions = {
                     }
                 })
             )])
+
+        redirect(303, "/dash")
     },
 
     deleteLink: async ({ request, locals }) => {
@@ -135,6 +145,8 @@ export const actions: Actions = {
                 id
             }
         })
+
+        redirect(303, "/dash")
     }
 
 }
