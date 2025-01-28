@@ -3,7 +3,6 @@
     import AddLink from "@/components/forms/AddLink.svelte";
     import Search from "@/components/Search.svelte";
     import Modal from "@/components/Modal.svelte";
-
     import { dndzone } from "svelte-dnd-action";
     import type { Link } from "@prisma/client";
     import { flip } from "svelte/animate";
@@ -14,7 +13,7 @@
     let currentLink = $state<Link>();
     let addLink = $state(false);
     let editLink = $state(false);
-    const flipDuration = 150;
+    const duration = 150;
 
     const handleConsider = (e: CustomEvent<{ items: Link[] }>) => {
         links = e.detail.items;
@@ -46,7 +45,7 @@
     });
 </script>
 
-<h1>Manage Links</h1>
+<h1>Dashboard</h1>
 
 <Modal header="Add Link" bind:open={addLink}>
     <AddLink handleClose={() => (addLink = false)} />
@@ -56,7 +55,7 @@
     <EditLink link={currentLink} handleClose={() => (editLink = false)} />
 </Modal>
 
-<div class="flex gap-5">
+<div class="flex flex-col md:flex-row gap-5">
     <Search />
     <button onclick={() => (addLink = true)}>Create Link</button>
 </div>
@@ -65,7 +64,7 @@
     use:dndzone={{
         items: links,
         dropTargetStyle: {},
-        flipDurationMs: flipDuration,
+        flipDurationMs: duration,
     }}
     onconsider={handleConsider}
     onfinalize={handleFinalize}
@@ -73,7 +72,7 @@
 >
     {#each links as link (link.id)}
         <button
-            animate:flip={{ duration: flipDuration }}
+            animate:flip={{ duration }}
             class="w-full text-left"
             onclick={() => {
                 currentLink = link;
