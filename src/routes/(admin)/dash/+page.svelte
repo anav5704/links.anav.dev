@@ -80,7 +80,7 @@
             }}
         >
             <p>{link.title}</p>
-            <p class="faded">{link.url}</p>
+            <p class="faded">{link.subtitle}</p>
         </button>
     {/each}
 </section>
