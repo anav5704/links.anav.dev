@@ -1,5 +1,7 @@
 <script lang="ts">
     const { handleClose } = $props();
+
+    let hidden = $state(false);
 </script>
 
 <form action="?/createLink" method="POST">
@@ -23,8 +25,20 @@
         <input type="text" name="url" />
     </label>
 
-    <di class="grid grid-cols-2 gap-5">
+    <label>
+        Hidden
+        <input bind:checked={hidden} type="checkbox" name="hidden" hidden />
+        <button
+            onclick={() => (hidden = !hidden)}
+            class="text-left"
+            type="button"
+        >
+            {hidden ? "Yes " : "No"}
+        </button>
+    </label>
+
+    <div class="grid grid-cols-2 gap-5">
         <button class="col-span-1" onclick={handleClose}>Close</button>
         <button class="col-span-1" type="submit">Create</button>
-    </di>
+    </div>
 </form>

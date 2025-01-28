@@ -2,6 +2,7 @@
     const { link, handleClose } = $props();
 
     let url = $state(link.url);
+    let hidden = $state(link.hidden);
 </script>
 
 <form action="?/updateLink" method="POST">
@@ -24,6 +25,18 @@
     <label>
         URL
         <input type="text" name="url" bind:value={url} />
+    </label>
+
+    <label>
+        Hidden
+        <input bind:checked={hidden} type="checkbox" name="hidden" hidden />
+        <button
+            onclick={() => (hidden = !hidden)}
+            class="text-left"
+            type="button"
+        >
+            {hidden ? "Yes " : "No"}
+        </button>
     </label>
 
     <di class="grid grid-cols-2 gap-5">
