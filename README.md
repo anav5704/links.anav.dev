@@ -13,3 +13,5 @@
 <figure>
   <iframe src="./.github/docs/demo.webm" frameborder="0" allowfullscreen="true"></iframe>
 </figure>
+
+[demo.webm](https://github.com/user-attachments/assets/c6004cbe-f407-4140-991d-ceeb29074bcd)
