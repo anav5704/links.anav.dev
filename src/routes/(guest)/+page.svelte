@@ -6,22 +6,29 @@
 </script>
 
 <svelte:head>
+    <script
+        defer
+        data-domains="links.anav.dev"
+        src="https://cloud.umami.is/script.js"
+        data-website-id="9acc1f2c-6aff-4c39-af51-887c135e40d5"
+    ></script>
     <meta name="description" content="Anav Chand | Links" />
     <title>Anav Chand | Links</title>
 </svelte:head>
 
 <enhanced:img
-    class="rounded-full h-[150px] w-[150px] md:w-[200px] md:h-[200px] aspect-square mx-auto"
+    class="rounded-full mx-auto"
     src="/static/anav.jpg"
     alt="Anav Chand"
+    height="150px"
+    width="150px"
 />
 
 <h1 class="text-center">Hi, I'm Anav Chand</h1>
 
 <p class="text-center">
-    I'm an aspiring DevOps engineer, self-taught web developer, first-year
-    software engineering student, and award-winning peer mentor @
-    <a class="underline" href="https://usp.ac.fj"> USP</a>.
+    Aspiring DevOps engineer. Self-taught web developer. Second-year software
+    engineering student. Award-winning peer mentor.
 </p>
 
 {#await data.links}
