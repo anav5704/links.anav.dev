@@ -16,9 +16,9 @@
     <title>Anav Chand | Links</title>
 </svelte:head>
 
-<enhanced:img
+<img
     class="h-[150px] w-[150px] rounded-full mx-auto"
-    src="/static/anav.jpg"
+    src="anav.jpg"
     alt="Anav Chand"
 />
 
