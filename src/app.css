@@ -56,6 +56,6 @@
     }
 
     .faded {
-        @apply text-[#888888];
+        @apply text-[#767676];
     }
 }
