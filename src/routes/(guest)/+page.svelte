@@ -17,11 +17,9 @@
 </svelte:head>
 
 <enhanced:img
-    class="rounded-full mx-auto"
+    class="h-[150px] w-[150px] rounded-full mx-auto"
     src="/static/anav.jpg"
     alt="Anav Chand"
-    height="150px"
-    width="150px"
 />
 
 <h1 class="text-center">Hi, I'm Anav Chand</h1>
