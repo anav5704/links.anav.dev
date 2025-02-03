@@ -45,6 +45,11 @@
     });
 </script>
 
+<svelte:head>
+    <meta name="description" content="Anav Chand | Dashboard" />
+    <title>Anav Chand | Dashboard</title>
+</svelte:head>
+
 <h1>Dashboard</h1>
 
 <Modal header="Add Link" bind:open={addLink}>

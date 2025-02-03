@@ -1,3 +1,8 @@
+<svelte:head>
+    <meta name="description" content="Anav Chand | Login" />
+    <title>Anav Chand | Login</title>
+</svelte:head>
+
 <form method="POST">
     <label>
         Password
