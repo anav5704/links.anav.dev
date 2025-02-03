@@ -13,12 +13,8 @@ model Link {
     subtitle String
     slug     String  @unique
     url      String  @unique
-    clicks   Int     @default(0)
     hidden   Boolean @default(false)
     index    Int     @default(autoincrement())
-
-    createdAt DateTime @default(now())
-    updatedAt DateTime @updatedAt
 
     @@index([id, slug])
 }
