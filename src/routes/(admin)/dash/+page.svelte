@@ -77,14 +77,16 @@
     {#each links as link (link.id)}
         <button
             animate:flip={{ duration }}
-            class={`${link.hidden && "opacity-50"} bg-white w-full text-left !cursor-pointer`}
+            class="bg-white w-full text-left !cursor-pointer"
             onclick={() => {
                 currentLink = link;
                 modalStore.editModal = true;
             }}
         >
             <p>{link.title}</p>
-            <p class="faded">{link.subtitle}</p>
+            <p class="line-clamp-1 faded">
+                {link.hidden ? link.url : link.subtitle}
+            </p>
         </button>
     {/each}
 </section>
