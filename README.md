@@ -23,7 +23,7 @@ DATABASE_URL=postgresql://postgres:postgres@localhost:5432/database
 PASSWORD=secure-password
 ```
 
-The `PASSWORD` variable will hold your actual password, which you will have to enter in the login page.
+The `PASSWORD` variable will hold your actual password, which you will have to enter in the login page. Once you have added your variables, run `pnpm dev` to view it on [localhost:5173](http://localhost:5173).
   
 ## Learning Resources
 
