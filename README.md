@@ -1,17 +1,32 @@
-# links.anav.dev
+# links.anav.dev 🔗
 
-<figure>
-<video>
-  <source src="./.github/docs/demo.webm" type="video/webm">
-</video>
-</figure>
-
-<figure>
-<iframe src="https://www.youtube.com/embed/lMw5DOJOsDc?si=RUkgB4acrIxNA4eJ" title="Demo" frameborder="0" autoplay allowfullscreen></iframe>
-</figure>
-
-<figure>
-  <iframe src="./.github/docs/demo.webm" frameborder="0" allowfullscreen="true"></iframe>
-</figure>
+This is a link management web application I built for myself. The user facing site (homepage) looks like a links in bio page similar to LinkTree, while the admin dashboard lets me organize my links by shortening and rerouting them.
 
 [demo.webm](https://github.com/user-attachments/assets/c6004cbe-f407-4140-991d-ceeb29074bcd)
+
+## Technologies Used
+
+- SvelteKit 5
+- TailwindCSS
+- Prisma ORM
+- Neon PostgreSQL
+- Umami Analytics
+
+## Getting Started
+
+This apps styling is based off my personal website, [anav.dev](https://anav.dev). This applies for both the user and admin pages. So if you want to use this for yourself, you will have to change all the styling yourself.
+
+If you are ok with that, first fork and clone the repo. Then, run `pnpm install` to download all the dependencies. Now, set up your environmental variables. Make a `.env` file in the root of your project with the following variables:
+
+```sh
+DATABASE_URL=postgresql://postgres:postgres@localhost:5432/database
+PASSWORD=secure-password
+```
+
+The `PASSWORD` variable will hold your actual password, which you will have to enter in the login page.
+  
+## Learning Resources
+
+- [SvelteKit Drag And Drop List](https://youtu.be/sFX525V3dMs)
+- [Add Prisma ORM To SvelteKit](https://www.prisma.io/blog/sveltekit-prisma-kvCOEoeQlC)
+- [SvelteKit 5 Docs](https://svelte.dev/)
