@@ -19,12 +19,12 @@
         };
     }}
 >
-    {#if !isHidden}
-        <label>
-            Title
-            <input type="text" name="title" />
-        </label>
+    <label>
+        Title
+        <input type="text" name="title" />
+    </label>
 
+    {#if !isHidden}
         <label>
             Subtitle
             <input type="text" name="subtitle" />

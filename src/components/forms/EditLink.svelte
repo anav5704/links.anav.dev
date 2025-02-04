@@ -24,12 +24,12 @@
 >
     <input type="text" name="id" value={link?.id} hidden />
 
-    {#if !isHidden}
-        <label>
-            Title
-            <input type="text" name="title" value={link?.title} />
-        </label>
+    <label>
+        Title
+        <input type="text" name="title" value={link?.title} />
+    </label>
 
+    {#if !isHidden}
         <label>
             Subtitle
             <input type="text" name="subtitle" value={link?.subtitle} />
