@@ -1,21 +1,40 @@
 <script lang="ts">
-    const { link, handleClose } = $props();
+    import { modalStore } from "@/stores/modal.svelte";
+    import { enhance } from "$app/forms";
 
+    const { link } = $props();
+
+    let isHidden = $state(link.hidden);
+    let isLoading = $state(false);
     let url = $state(link.url);
-    let hidden = $state(link.hidden);
 </script>
 
-<form action="?/updateLink" method="POST">
+<form
+    action="?/updateLink"
+    method="POST"
+    use:enhance={() => {
+        isLoading = true;
+        return async ({ update }) => {
+            update().finally(async () => {
+                isLoading = false;
+                modalStore.editModal = false;
+            });
+        };
+    }}
+>
     <input type="text" name="id" value={link?.id} hidden />
-    <label>
-        Title
-        <input type="text" name="title" value={link?.title} />
-    </label>
 
-    <label>
-        Subtitle
-        <input type="text" name="subtitle" value={link?.subtitle} />
-    </label>
+    {#if !isHidden}
+        <label>
+            Title
+            <input type="text" name="title" value={link?.title} />
+        </label>
+
+        <label>
+            Subtitle
+            <input type="text" name="subtitle" value={link?.subtitle} />
+        </label>
+    {/if}
 
     <label>
         Slug
@@ -29,23 +48,30 @@
 
     <label>
         Hidden
-        <input bind:checked={hidden} type="checkbox" name="hidden" hidden />
+        <input bind:checked={isHidden} type="checkbox" name="hidden" hidden />
         <button
-            onclick={() => (hidden = !hidden)}
+            onclick={() => (isHidden = !isHidden)}
             class="text-left"
             type="button"
         >
-            {hidden ? "Yes " : "No"}
+            {isHidden ? "Yes " : "No"}
         </button>
     </label>
 
     <di class="grid grid-cols-2 gap-5">
-        <button class="col-span-1" onclick={handleClose}>Close</button>
+        <button
+            onclick={() => (modalStore.editModal = false)}
+            class="col-span-1"
+        >
+            Close
+        </button>
         {#if url}
-            <button class="col-span-1" type="submit"> Update </button>
+            <button class="col-span-1" type="submit">
+                {isLoading ? "Loading..." : "Update"}
+            </button>
         {:else}
             <button class="col-span-1" type="submit" formaction="?/deleteLink">
-                Delete
+                {isLoading ? "Loading..." : "Delete"}
             </button>
         {/if}
     </di>
