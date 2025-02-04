@@ -1,6 +1,7 @@
 <script lang="ts">
     import EditLink from "@/components/forms/EditLink.svelte";
     import AddLink from "@/components/forms/AddLink.svelte";
+    import { modalStore } from "@/stores/modal.svelte.js";
     import Search from "@/components/Search.svelte";
     import Modal from "@/components/Modal.svelte";
     import { dndzone } from "svelte-dnd-action";
@@ -11,9 +12,7 @@
 
     let links = $state<Link[]>(data.links);
     let currentLink = $state<Link>();
-    let addLink = $state(false);
-    let editLink = $state(false);
-    const duration = 150;
+    export const duration = 150;
 
     const handleConsider = (e: CustomEvent<{ items: Link[] }>) => {
         links = e.detail.items;
@@ -52,17 +51,17 @@
 
 <h1>Dashboard</h1>
 
-<Modal header="Add Link" bind:open={addLink}>
-    <AddLink handleClose={() => (addLink = false)} />
+<Modal header="Add Link" bind:open={modalStore.addModal}>
+    <AddLink />
 </Modal>
 
-<Modal header="Edit Link" bind:open={editLink}>
-    <EditLink link={currentLink} handleClose={() => (editLink = false)} />
+<Modal header="Edit Link" bind:open={modalStore.editModal}>
+    <EditLink link={currentLink} />
 </Modal>
 
 <div class="flex flex-col md:flex-row gap-5">
     <Search />
-    <button onclick={() => (addLink = true)}>Create Link</button>
+    <button onclick={() => (modalStore.addModal = true)}>Create Link</button>
 </div>
 
 <section
@@ -78,10 +77,10 @@
     {#each links as link (link.id)}
         <button
             animate:flip={{ duration }}
-            class={`${link.hidden && "opacity-50"} bg-white w-full text-left`}
+            class={`${link.hidden && "opacity-50"} bg-white w-full text-left !cursor-pointer`}
             onclick={() => {
                 currentLink = link;
-                editLink = true;
+                modalStore.editModal = true;
             }}
         >
             <p>{link.title}</p>
