@@ -9,8 +9,8 @@ datasource db {
 
 model Link {
     id       String  @id @default(uuid())
-    title    String  @unique
-    subtitle String
+    title    String? @unique
+    subtitle String?
     slug     String  @unique
     url      String  @unique
     hidden   Boolean @default(false)
