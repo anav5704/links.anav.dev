@@ -1,19 +1,35 @@
 <script lang="ts">
-    const { handleClose } = $props();
+    import { modalStore } from "@/stores/modal.svelte";
+    import { enhance } from "$app/forms";
 
-    let hidden = $state(false);
+    let isHidden = $state(false);
+    let isLoading = $state(false);
 </script>
 
-<form action="?/createLink" method="POST">
-    <label>
-        Title
-        <input type="text" name="title" />
-    </label>
+<form
+    action="?/createLink"
+    method="POST"
+    use:enhance={() => {
+        isLoading = true;
+        return async ({ update }) => {
+            update().finally(async () => {
+                isLoading = false;
+                modalStore.addModal = false;
+            });
+        };
+    }}
+>
+    {#if !isHidden}
+        <label>
+            Title
+            <input type="text" name="title" />
+        </label>
 
-    <label>
-        Subtitle
-        <input type="text" name="subtitle" />
-    </label>
+        <label>
+            Subtitle
+            <input type="text" name="subtitle" />
+        </label>
+    {/if}
 
     <label>
         Slug
@@ -27,18 +43,25 @@
 
     <label>
         Hidden
-        <input bind:checked={hidden} type="checkbox" name="hidden" hidden />
+        <input bind:checked={isHidden} type="checkbox" name="hidden" hidden />
         <button
-            onclick={() => (hidden = !hidden)}
+            onclick={() => (isHidden = !isHidden)}
             class="text-left"
             type="button"
         >
-            {hidden ? "Yes " : "No"}
+            {isHidden ? "Yes " : "No"}
         </button>
     </label>
 
     <div class="grid grid-cols-2 gap-5">
-        <button class="col-span-1" onclick={handleClose}>Close</button>
-        <button class="col-span-1" type="submit">Create</button>
+        <button
+            onclick={() => (modalStore.addModal = false)}
+            class="col-span-1"
+        >
+            Close
+        </button>
+        <button class="col-span-1" type="submit">
+            {isLoading ? "Loading..." : "Create"}
+        </button>
     </div>
 </form>
