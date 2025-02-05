@@ -1,8 +1,8 @@
 # links.anav.dev 🔗
 
-This is a link management web application I built for myself. The user facing site (homepage) looks like a links in bio page similar to LinkTree, while the admin dashboard lets me organize my links by shortening and rerouting them.
+This is a link management web application I built for myself. The user-facing site (homepage) looks like a links in bio page similar to LinkTree, while the admin dashboard lets me organize my links by shortening and rerouting them.
 
-[demo.webm](https://github.com/user-attachments/assets/c6004cbe-f407-4140-991d-ceeb29074bcd)
+[demo.webm](https://github.com/user-attachments/assets/e9b231ee-83b7-48f9-8dce-e0510824e58d)
 
 ## Technologies Used
 
@@ -14,7 +14,7 @@ This is a link management web application I built for myself. The user facing si
 
 ## Getting Started
 
-This apps styling is based off my personal website, [anav.dev](https://anav.dev). This applies for both the user and admin pages. So if you want to use this for yourself, you will have to change all the styling yourself.
+This apps styling is based on my personal website, [anav.dev](https://anav.dev). This applies for both the user and admin pages. So if you want to use this for yourself, you will have to change all the styling yourself.
 
 If you are ok with that, first fork and clone the repo. Then, run `pnpm install` to download all the dependencies. Now, set up your environmental variables. Make a `.env` file in the root of your project with the following variables:
 
