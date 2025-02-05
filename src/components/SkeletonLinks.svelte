@@ -3,7 +3,7 @@
 </script>
 
 <div class="flex flex-col gap-5">
-    {#each skeletons as Skeleton}
+    {#each skeletons as _}
         <div class="p-2 bg-zinc-100 rounded-lg animate-pulse text-transparent">
             <p>Title</p>
             <p>Subtitle</p>
