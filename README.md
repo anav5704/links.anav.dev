@@ -2,7 +2,7 @@
 
 This is a link management web application I built for myself. The user-facing site (homepage) looks like a links in bio page similar to LinkTree, while the admin dashboard lets me organize my links by shortening and rerouting them.
 
-[demo.webm](https://github.com/user-attachments/assets/e9b231ee-83b7-48f9-8dce-e0510824e58d)
+[links.anav.dev.webm](https://github.com/user-attachments/assets/cc610a66-04ba-4a24-8091-4b9e34da01d6)
 
 ## Technologies Used
 
