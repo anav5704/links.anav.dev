@@ -38,11 +38,10 @@
         }
     }
 
-    button {
-        @apply card;
-    }
-
-    input {
+    a,
+    input,
+    button,
+    article {
         @apply card;
     }
 }
@@ -58,5 +57,9 @@
 
     .faded {
         @apply text-[#767676];
+    }
+
+    .link-action {
+        @apply border-none p-2.5;
     }
 }

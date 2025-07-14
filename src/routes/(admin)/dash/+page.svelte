@@ -12,7 +12,6 @@
     const { data } = $props();
 
     let links = $state<Link[]>(data.links);
-    let currentLink = $state<Link>();
     const duration = 150;
 
     const handleConsider = (e: CustomEvent<{ items: Link[] }>) => {
@@ -52,14 +51,6 @@
 
 <h1>Dashboard</h1>
 
-<Modal header="Add Link" bind:open={modalStore.addModal}>
-    <AddLink />
-</Modal>
-
-<Modal header="Edit Link" bind:open={modalStore.editModal}>
-    <EditLink link={currentLink} />
-</Modal>
-
 <div class="flex flex-col md:flex-row gap-5">
     <Search />
     <button onclick={() => (modalStore.addModal = true)}>Create Link</button>
@@ -77,10 +68,10 @@
 >
     {#each links as link (link.id)}
         <article
-            class="bg-white group grid grid-cols-3 gap-5 px-4 py-2 border border-zinc-200 rounded-lg"
+            class="grid-cols-1 group grid md:grid-cols-3 gap-0 md:gap-5"
             animate:flip={{ duration }}
         >
-            <AdminLink {link} {currentLink} />
+            <AdminLink {link} />
         </article>
     {/each}
 </section>

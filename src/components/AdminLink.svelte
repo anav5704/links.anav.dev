@@ -1,10 +1,11 @@
 <script lang="ts">
     import { Check, Link, QrCode, Settings } from "@lucide/svelte";
     import { modalStore } from "@/stores/modal.svelte";
+    import { linkStore } from "@/stores/link.svelte";
     import { PUBLIC_URL } from "$env/static/public";
     import QRCode from "qrcode";
 
-    let { link, currentLink } = $props();
+    let { link } = $props();
 
     let isLinkCopied = $state(false);
     let isQRCopied = $state(false);
@@ -44,23 +45,22 @@
     };
 
     const handleEdit = () => {
-        currentLink = link;
+        linkStore.link = link;
         modalStore.editModal = true;
     };
 </script>
 
-<div class="col-span-2">
+<div class="col-span-1 md:col-span-2">
     <p>{link.title}</p>
-    <p class="line-clamp-1 faded truncate">
+    <p class="line-clamp-1 faded">
         {link.hidden ? link.url : link.subtitle}
     </p>
 </div>
 
-<div class="col-span-1 flex items-center justify-end">
-    <button
-        class="border-none p-2.5 opacity-0 group-hover:opacity-100 transition"
-        onclick={copyLink}
-    >
+<div
+    class="opacity-100 md:opacity-0 group-hover:opacity-100 transition col-span-1 flex items-center justify-end"
+>
+    <button class="link-action" onclick={copyLink}>
         {#if isLinkCopied}
             <Check size={20} />
         {:else}
@@ -68,10 +68,7 @@
         {/if}
     </button>
 
-    <button
-        class="border-none p-2.5 opacity-0 group-hover:opacity-100 transition"
-        onclick={copyQRcode}
-    >
+    <button class="link-action" onclick={copyQRcode}>
         {#if isQRCopied}
             <Check size={20} />
         {:else}
@@ -79,10 +76,7 @@
         {/if}
     </button>
 
-    <button
-        class="border-none p-2.5 opacity-0 group-hover:opacity-100 transition"
-        onclick={handleEdit}
-    >
+    <button class="link-action" onclick={handleEdit}>
         <Settings size={20} />
     </button>
 </div>
