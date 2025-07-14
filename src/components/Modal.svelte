@@ -4,7 +4,7 @@
 
 {#if open}
     <div
-        class="z-10 fixed flex items-center -top-5 left-0 w-screen h-screen bg-black/10 backdrop-blur-lg"
+        class="z-10 fixed flex items-center left-0 w-screen h-screen bg-black/10 backdrop-blur-lg"
     >
         <div class="max-w-7xl w-full mx-auto">
             <div

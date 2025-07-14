@@ -20,6 +20,7 @@
         "@sveltejs/kit": "^2.0.0",
         "@sveltejs/vite-plugin-svelte": "^4.0.0",
         "@types/node": "^22.10.10",
+        "@types/qrcode": "^1.5.5",
         "autoprefixer": "^10.4.20",
         "prisma": "^6.2.1",
         "svelte": "^5.0.0",
@@ -31,7 +32,9 @@
     "dependencies": {
         "@fontsource/alice": "^5.1.1",
         "@fontsource/geist-sans": "^5.1.0",
+        "@lucide/svelte": "^0.525.0",
         "@prisma/client": "^6.2.1",
+        "qrcode": "^1.5.4",
         "svelte-dnd-action": "^0.9.55"
     }
 }
