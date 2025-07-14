@@ -1,7 +1,8 @@
 <script lang="ts">
     import EditLink from "@/components/forms/EditLink.svelte";
     import AddLink from "@/components/forms/AddLink.svelte";
-    import { modalStore } from "@/stores/modal.svelte.js";
+    import AdminLink from "@/components/AdminLink.svelte";
+    import { modalStore } from "@/stores/modal.svelte";
     import Search from "@/components/Search.svelte";
     import Modal from "@/components/Modal.svelte";
     import { dndzone } from "svelte-dnd-action";
@@ -12,7 +13,7 @@
 
     let links = $state<Link[]>(data.links);
     let currentLink = $state<Link>();
-    export const duration = 150;
+    const duration = 150;
 
     const handleConsider = (e: CustomEvent<{ items: Link[] }>) => {
         links = e.detail.items;
@@ -75,18 +76,11 @@
     class="space-y-5"
 >
     {#each links as link (link.id)}
-        <button
+        <article
+            class="bg-white group grid grid-cols-3 gap-5 px-4 py-2 border border-zinc-200 rounded-lg"
             animate:flip={{ duration }}
-            class="bg-white w-full text-left !cursor-pointer"
-            onclick={() => {
-                currentLink = link;
-                modalStore.editModal = true;
-            }}
         >
-            <p>{link.title}</p>
-            <p class="line-clamp-1 faded">
-                {link.hidden ? link.url : link.subtitle}
-            </p>
-        </button>
+            <AdminLink {link} {currentLink} />
+        </article>
     {/each}
 </section>
