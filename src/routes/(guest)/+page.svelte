@@ -25,8 +25,8 @@
 <h1 class="text-center">Hi, I'm Anav Chand</h1>
 
 <p class="text-center">
-    Aspiring DevOps engineer. Self-taught web developer. Second-year software
-    engineering student. Award-winning peer mentor.
+    I'm a DevOps-focused software engineering student exploring AI systems,
+    cloud infra, and automation, with a track record of technical leadership.
 </p>
 
 {#await data.links}
