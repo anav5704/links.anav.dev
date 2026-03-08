@@ -12,8 +12,11 @@
         src="https://cloud.umami.is/script.js"
         data-website-id="9acc1f2c-6aff-4c39-af51-887c135e40d5"
     ></script>
-    <meta name="description" content="Anav Chand | Links" />
-    <title>Anav Chand | Links</title>
+    <meta
+        name="description"
+        content="I'm a DevOps-focused software engineering student exploring AI systems, cloud infra, and automation, with a track record of technical leadership."
+    />
+    <title>Anav Chand | Links and Socials</title>
 </svelte:head>
 
 <img
